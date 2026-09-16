@@ -2,11 +2,12 @@ import random
 import smtplib
 import datetime as dt
 import pandas as pd
+import personal
 
 def send_email(message):
 
-    my_email = 'dipesh267@gmail.com'
-    password = 'oolvcfjegztsdnay'
+    my_email = personal.my_email
+    password = personal.password
     connection = smtplib.SMTP('smtp.gmail.com',587)
 
     connection.starttls()
@@ -14,7 +15,7 @@ def send_email(message):
     connection.login(user=my_email, password=password)
     connection.sendmail(
         from_addr=my_email,
-        to_addrs='dipesh267@hotmail.com', 
+        to_addrs=personal.receiver_email, 
         # msg=f"Subject: Motivation\n\n {message['quote']} - {message['author']}")
         msg=f"Subject: Happy Birthday!\n\n {message}")
     
